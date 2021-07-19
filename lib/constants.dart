@@ -1,4 +1,6 @@
 
+import 'package:lionsbot_test/models/achievement.dart';
+
 final List<Achievement> constantPointsList = [
   Achievement(
     itemTitle: "Succcessful Operation", 
@@ -54,21 +56,3 @@ final List<Achievement> constantBadgesList = [
     itemTimeElapsed: "8 min ago"
   ),
 ];
-
-class Achievement{
-  String itemTitle;
-  String itemTimeElapsed;
-  String itemDescription;
-
-  Achievement({required this.itemTitle, required this.itemTimeElapsed, required this.itemDescription});
-}
-
-class User {
-  String username;
-  int cleaningHours;
-  List<Achievement> pointsList;
-  List<Achievement> badgesList;
-
-  User({required this.username, required this.cleaningHours, required this.pointsList, required this.badgesList});
-
-}

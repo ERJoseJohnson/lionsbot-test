@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:lionsbot_test/constants.dart';
+import 'package:lionsbot_test/models/achievement.dart';
+import 'package:lionsbot_test/models/user.dart';
 import 'package:lionsbot_test/pages/profileListItem.dart';
 
 
@@ -13,13 +15,11 @@ class ProfilePage extends StatefulWidget {
 }
 
 class _ProfilePageState extends State<ProfilePage> {
-  late List<Achievement> _pointsList;
-  late List<Achievement> _badgesList;
+  late User _currentUser;
 
   @override
   void initState() {
-    this._pointsList = constantPointsList;
-    this._badgesList = constantBadgesList;
+    _currentUser = User(username: "John Doe", cleaningHours: 13, badgesList: constantBadgesList, pointsList: constantPointsList);
     super.initState();
   }
 
@@ -48,12 +48,18 @@ class _ProfilePageState extends State<ProfilePage> {
         actions: [
           TextButton(
             onPressed: (){}, 
-            child: Text(
-              "Logout",
-              style: TextStyle(
-                color: Colors.white
-              ),
-            ),
+            child: TextButton(
+              child: 
+                Text(
+                "Logout",
+                style: TextStyle(
+                  color: Colors.white
+                  ),
+                ),
+                onPressed: () {
+                  Navigator.of(context).popUntil(ModalRoute.withName('/'));
+                },
+              ) 
           )
         ],
       ),
@@ -99,7 +105,7 @@ class _ProfilePageState extends State<ProfilePage> {
                     height: 10,
                   ),
                   Text(
-                    "John Doe",
+                    this._currentUser.username,
                     style: TextStyle(
                       color: Colors.black,
                       fontSize: 24,
@@ -121,7 +127,7 @@ class _ProfilePageState extends State<ProfilePage> {
                         ),
                       ),
                       Text(
-                        "15",
+                        this._currentUser.cleaningHours.toString(),
                         style: TextStyle(
                           color: Colors.black,
                           fontSize: 18,
@@ -179,13 +185,12 @@ class _ProfilePageState extends State<ProfilePage> {
                           left: MediaQuery.of(context).size.width/8,
                           right: MediaQuery.of(context).size.width/8
                         ),
-                        itemCount: this._badgesList.length,
+                        itemCount: this._currentUser.pointsList.length,
                         itemBuilder: (context, int index){
-                          print(index);
                           return ProfileListItem(
-                            itemTitle: this._pointsList[index].itemTitle, 
-                            itemDescription: this._pointsList[index].itemDescription, 
-                            itemTimeElapsed: this._pointsList[index].itemTimeElapsed
+                            itemTitle: this._currentUser.pointsList[index].itemTitle, 
+                            itemDescription: this._currentUser.pointsList[index].itemDescription, 
+                            itemTimeElapsed: this._currentUser.pointsList[index].itemTimeElapsed
                           );
                         }
                       ),
