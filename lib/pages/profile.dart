@@ -204,8 +204,12 @@ class _ProfilePageState extends State<ProfilePage> {
         type: BottomNavigationBarType.fixed,
         unselectedItemColor: Colors.blue,
         unselectedLabelStyle: TextStyle(color: Colors.blue),
-        // selectedLabelStyle: TextStyle(color: Colors.lightBlue),
-        // selectedItemColor: Colors.lightBlue,
+        onTap: (int index){
+          if (index == 4){
+            print("going to remote");
+            Navigator.of(context).pushNamed('/remote');
+          }
+        },
         items: [
           BottomNavigationBarItem(
             icon: Icon(
