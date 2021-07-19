@@ -43,11 +43,10 @@ class _ProfilePageState extends State<ProfilePage> {
             print("Go home");
           },
         ),
-        title: Center(
-          child: Text("Profile",style: TextStyle(
-            color: Colors.white,
-            fontSize: 40),),
-        ),
+        centerTitle: true,
+        title: Text("Profile",style: TextStyle(
+          color: Colors.white,
+          fontSize: 40),),
         actions: [
           TextButton(
             onPressed: (){}, 

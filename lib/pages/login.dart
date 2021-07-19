@@ -26,11 +26,10 @@ class _LoginPageState extends State<LoginPage> {
       appBar: AppBar(
         backgroundColor: Colors.transparent,
         elevation: 0.0,
-        title: Center(
-          child: Text("Log In",style: TextStyle(
-            color: Colors.white,
-            fontSize: 40),),
-        ),
+        centerTitle: true,
+        title: Text("Log In",style: TextStyle(
+          color: Colors.white,
+          fontSize: 40),),
       ),
       extendBodyBehindAppBar: true,
       body: Stack(
