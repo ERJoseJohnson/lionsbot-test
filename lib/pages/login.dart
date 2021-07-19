@@ -104,7 +104,9 @@ class _LoginPageState extends State<LoginPage> {
                             border: Border(),
                           ),
                           child: TextButton(
-                            onPressed: (){},
+                            onPressed: (){
+                              Navigator.pushNamed(context, "/profile");
+                            },
                             child: Text(
                               "Log In",
                               style: TextStyle(color: Colors.white),

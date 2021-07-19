@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:lionsbot_test/pages/login.dart';
+import 'package:lionsbot_test/pages/profile.dart';
 
 void main() {
   runApp(MyApp());
@@ -15,7 +16,7 @@ class MyApp extends StatelessWidget {
       ),
       routes: {
         '/': (context) => LoginPage(title: "Login"),
-        '/profile': (context) => LoginPage(title: 'Profile'),
+        '/profile': (context) => ProfilePage(title: 'Profile'),
         '/remote': (context) => LoginPage(title: 'Remote Control'),
       },
       initialRoute: '/',
