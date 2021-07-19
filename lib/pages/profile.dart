@@ -16,10 +16,13 @@ class ProfilePage extends StatefulWidget {
 
 class _ProfilePageState extends State<ProfilePage> {
   late User _currentUser;
+  bool _pointsMode = true;
+  late List<Achievement> _listToDisplay;
 
   @override
   void initState() {
     _currentUser = User(username: "John Doe", cleaningHours: 13, badgesList: constantBadgesList, pointsList: constantPointsList);
+    _listToDisplay = this._currentUser.pointsList;
     super.initState();
   }
 
@@ -153,21 +156,32 @@ class _ProfilePageState extends State<ProfilePage> {
                       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                       children: [
                         TextButton(
-                          onPressed: () {}, 
+                          onPressed: () {
+                            setState(() {
+                              _pointsMode = true;
+                              _listToDisplay = _currentUser.pointsList;
+                            });
+                          }, 
                           child: Text(
                             "Points",
                             style: TextStyle(
-                              fontSize: 18
+                              fontSize: 18,
+                              color: this._pointsMode?Colors.blue:Colors.grey,
                             ),
                           )
                         ),
                         TextButton(
-                          onPressed: () {}, 
+                          onPressed: () {
+                            setState(() {
+                              _pointsMode = false;
+                              _listToDisplay = _currentUser.badgesList;
+                            });
+                          }, 
                           child: Text(
                             "Badges",
                             style: TextStyle(
                               fontSize: 18,
-                              color: Colors.grey
+                              color: this._pointsMode?Colors.grey:Colors.blue,
                             ),
                           )
                         ),
@@ -185,12 +199,12 @@ class _ProfilePageState extends State<ProfilePage> {
                           left: MediaQuery.of(context).size.width/8,
                           right: MediaQuery.of(context).size.width/8
                         ),
-                        itemCount: this._currentUser.pointsList.length,
+                        itemCount: this._listToDisplay.length,
                         itemBuilder: (context, int index){
                           return ProfileListItem(
-                            itemTitle: this._currentUser.pointsList[index].itemTitle, 
-                            itemDescription: this._currentUser.pointsList[index].itemDescription, 
-                            itemTimeElapsed: this._currentUser.pointsList[index].itemTimeElapsed
+                            itemTitle: this._listToDisplay[index].itemTitle, 
+                            itemDescription: this._listToDisplay[index].itemDescription, 
+                            itemTimeElapsed: this._listToDisplay[index].itemTimeElapsed
                           );
                         }
                       ),
