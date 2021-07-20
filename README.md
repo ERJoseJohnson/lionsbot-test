@@ -1,8 +1,10 @@
 # lionsbot_test
+Worked on the Mobile Technical Test.
+Application developed using Flutter.
 
 ## Getting Started
 
-Application developed and tested on Pixel 4a
+Application developed and tested on personal Pixel 4a
 
 ## Login credentials 
 Use the credentials below to login to the application
