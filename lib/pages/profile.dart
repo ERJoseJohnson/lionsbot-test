@@ -3,6 +3,7 @@ import 'package:lionsbot_test/constants.dart';
 import 'package:lionsbot_test/models/achievement.dart';
 import 'package:lionsbot_test/models/user.dart';
 import 'package:lionsbot_test/pages/profileListItem.dart';
+import 'package:lionsbot_test/widgets/profile_picture.dart';
 
 
 class ProfilePage extends StatefulWidget {
@@ -84,25 +85,7 @@ class _ProfilePageState extends State<ProfilePage> {
                   SizedBox(
                   height: 150
                 ),
-                  Container(
-                    padding: EdgeInsets.all(5),
-                    decoration: BoxDecoration(
-                      shape: BoxShape.circle,
-                      color: Colors.white,
-                    ),
-                    // color: Colors.white,
-                    child: ClipOval(
-                      child: Material(
-                        color: Colors.transparent,
-                        child: Ink.image(
-                          image: AssetImage("assets/JohnDoe.jpeg"),
-                          fit: BoxFit.cover,
-                          width: 128,
-                          height: 128,
-                        ),
-                      ),
-                    ),
-                  ),
+                  ProfilePicture(),
                   SizedBox(
                     height: 10,
                   ),
@@ -259,6 +242,7 @@ class _ProfilePageState extends State<ProfilePage> {
     );
   }
 }
+
 
 class MyScrollBehavior extends ScrollBehavior {
   @override
