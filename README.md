@@ -1,16 +1,15 @@
 # lionsbot_test
 
-A new Flutter project.
-
 ## Getting Started
 
-This project is a starting point for a Flutter application.
+Application developed and tested on Pixel 4a
 
-A few resources to get you started if this is your first Flutter project:
+## Login credentials 
+Use the credentials below to login to the application 
+Email: lions@bot.com
+Password: l1onsbot
 
-- [Lab: Write your first Flutter app](https://flutter.dev/docs/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://flutter.dev/docs/cookbook)
+These credentials can be found in lib/constants.dart as well
 
-For help getting started with Flutter, view our
-[online documentation](https://flutter.dev/docs), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+## Known Issue(s)
+- I was only able to implement a simple boundary constraint check for the joystick. An improvement would be to incorporate direction checks for smoother boundary recorvery
