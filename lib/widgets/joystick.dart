@@ -59,7 +59,7 @@ class _JoystickState extends State<Joystick> {
             width: 300,
             height: 300,
             decoration: BoxDecoration(
-              color: Colors.blue,
+              color: Color(0xFF072191),
               shape: BoxShape.circle,
               border: Border.all(
                 color: Colors.white,
@@ -69,8 +69,8 @@ class _JoystickState extends State<Joystick> {
               boxShadow: <BoxShadow>[
                 BoxShadow(
                   color: Colors.black12,
-                  spreadRadius: 8.0,
-                  blurRadius: 8.0,
+                  spreadRadius: 10.0,
+                  blurRadius: 10.0,
                 )
               ],
             ),
@@ -91,9 +91,9 @@ class _JoystickState extends State<Joystick> {
               ),
               boxShadow: <BoxShadow>[
                 BoxShadow(
-                  color: Colors.black12,
-                  spreadRadius: 8.0,
-                  blurRadius: 8.0,
+                  color: Colors.black87,
+                  spreadRadius: 8,
+                  blurRadius: 8,
                 )
               ],
             ),
