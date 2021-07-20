@@ -5,7 +5,8 @@
 Application developed and tested on Pixel 4a
 
 ## Login credentials 
-Use the credentials below to login to the application 
+Use the credentials below to login to the application
+<br />
 Email: lions@bot.com
 Password: l1onsbot
 
