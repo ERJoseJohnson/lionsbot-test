@@ -35,13 +35,15 @@ class _JoystickState extends State<Joystick> {
   Widget build(BuildContext context) {
     return GestureDetector(
       onPanUpdate: (dragDetails) {
-        //TODO: check if it does not reach the end of the circle.
-        setState(() {
-          innerCircleX = dragDetails.globalPosition.dx - stackLeft - 75;
-          innerCircleY = dragDetails.globalPosition.dy - stackTop - 75;
-        });
-
         
+        double posX = dragDetails.globalPosition.dx;
+        double posY = dragDetails.globalPosition.dy;
+        if (checkConstraints(posX, posY, stackTop, stackLeft)){
+          setState(() {
+            innerCircleX = dragDetails.globalPosition.dx - stackLeft - 75;
+            innerCircleY = dragDetails.globalPosition.dy - stackTop - 75;
+          });
+        }
       },
       onPanEnd: (dragDetails){
         setState(() {
@@ -99,5 +101,20 @@ class _JoystickState extends State<Joystick> {
         ],
       ),
     );
+  }
+
+  static bool checkConstraints(double posX, double posY, double topCoord, double leftCoord){
+    double boundaryTopY = topCoord;
+    double boundaryBottomY = topCoord + 300;
+    double boundaryLeftX = leftCoord;
+    double boundaryRightX = leftCoord + 300;
+
+    if (posY+75 < boundaryBottomY && posY-75 > boundaryTopY && posX-75 > boundaryLeftX && posX+75 < boundaryRightX){
+      return true;
+    }
+    else {
+      return false;
+    }
+
   }
 }
