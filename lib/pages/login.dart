@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:lionsbot_test/constants.dart';
 
 
 class LoginPage extends StatefulWidget {
@@ -13,6 +14,7 @@ class LoginPage extends StatefulWidget {
 class _LoginPageState extends State<LoginPage> {
   TextEditingController _emailController = TextEditingController();
   TextEditingController _passwordController = TextEditingController();
+  bool showPassword = false;
 
   @override
   void initState() {
@@ -69,7 +71,7 @@ class _LoginPageState extends State<LoginPage> {
                     padding: EdgeInsets.all(10),
                     child: new TextField(
                       controller: this._passwordController,
-                      obscureText: true,
+                      obscureText: !showPassword,
                       decoration: InputDecoration(
                         filled: true,
                         border: OutlineInputBorder(
@@ -81,8 +83,15 @@ class _LoginPageState extends State<LoginPage> {
                         hintStyle: TextStyle(color: Colors.grey),
                         fillColor: Colors.white,
                         suffixIcon: TextButton(
-                          onPressed: () { print("Unobscure password"); },
-                          child: Text("Show"),
+                          onPressed: () { 
+                            print("Toggle password");
+                            setState(() {
+                              showPassword = !showPassword;
+                            });
+                          },
+                          child: Text(
+                            (showPassword)?"Hide":"Show"
+                          ),
                         ),
                       ),
                     ),
@@ -104,7 +113,18 @@ class _LoginPageState extends State<LoginPage> {
                           ),
                           child: TextButton(
                             onPressed: (){
-                              Navigator.pushNamed(context, "/profile");
+                              if (_emailController.text == hardCodedEmail && _passwordController.text == hardCodedPassword){
+                                _emailController.clear();
+                                _passwordController.clear();
+                                Navigator.pushNamed(context, "/profile");
+                              } 
+                              else {
+                                ScaffoldMessenger.of(context).showSnackBar(
+                                  SnackBar(content: Text("Invalid password or email! Try again."))
+                                );
+                                _emailController.clear();
+                                _passwordController.clear();
+                              }
                             },
                             child: Text(
                               "Log In",

@@ -1,6 +1,9 @@
 
 import 'package:lionsbot_test/models/achievement.dart';
 
+final String hardCodedEmail = "lions@bot.com";
+final String hardCodedPassword = "l1onsbot";
+
 final List<Achievement> constantPointsList = [
   Achievement(
     itemTitle: "Succcessful Operation", 
