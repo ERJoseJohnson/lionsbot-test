@@ -116,6 +116,7 @@ class _LoginPageState extends State<LoginPage> {
                               if (_emailController.text == hardCodedEmail && _passwordController.text == hardCodedPassword){
                                 _emailController.clear();
                                 _passwordController.clear();
+                                showPassword = false;
                                 Navigator.pushNamed(context, "/profile");
                               } 
                               else {
@@ -124,6 +125,7 @@ class _LoginPageState extends State<LoginPage> {
                                 );
                                 _emailController.clear();
                                 _passwordController.clear();
+                                showPassword = false;
                               }
                             },
                             child: Text(
