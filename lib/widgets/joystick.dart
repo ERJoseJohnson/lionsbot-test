@@ -24,8 +24,6 @@ class _JoystickState extends State<Joystick> {
             if (translation != null && box!.paintBounds != null) {
               stackTop = box.paintBounds.shift(Offset(translation.x, translation.y)).top;
               stackLeft = box.paintBounds.shift(Offset(translation.x, translation.y)).left;
-              // print("This is the stack Top coord ${stackTop} ");
-              // print("This is the stack Left coord ${stackLeft} ");
             } else {
               print(null);
             }
@@ -39,7 +37,6 @@ class _JoystickState extends State<Joystick> {
       onPanUpdate: (dragDetails) {
         //TODO: check if it does not reach the end of the circle.
         setState(() {
-          // print("This is the global position ${dragDetails.globalPosition}");
           innerCircleX = dragDetails.globalPosition.dx - stackLeft - 75;
           innerCircleY = dragDetails.globalPosition.dy - stackTop - 75;
         });

@@ -16,8 +16,6 @@ class RemotePage extends StatefulWidget {
 }
 
 class _RemotePageState extends State<RemotePage> {
-  TextEditingController _emailController = TextEditingController();
-  TextEditingController _passwordController = TextEditingController();
   bool waterToggle = false;
   bool brushToggle = false;
   bool isStartMode = true;
@@ -327,49 +325,6 @@ class _RemotePageState extends State<RemotePage> {
                 SizedBox(
                   height: 50,
                 )
-                // Stack(
-                //   children: [
-                //     Container(
-                //       width: MediaQuery.of(context).size.width/1.5,
-                //       height: MediaQuery.of(context).size.width/1.5,
-                //       decoration: BoxDecoration(
-                //         // borderRadius: BorderRadius.circular(100),
-                //         color: Color(0xFF003366),
-                //         shape: BoxShape.circle,
-                        
-                //       ),
-                //     ),
-                //     Container(
-                //       width: MediaQuery.of(context).size.width/1.5-80,
-                //       height: MediaQuery.of(context).size.width/1.5-80,
-                //       decoration: BoxDecoration(
-                //         // borderRadius: BorderRadius.circular(100),
-                //         color: Colors.blue,
-                //         shape: BoxShape.circle,
-                //         boxShadow: <BoxShadow>[
-                //           BoxShadow(
-                //             color: Colors.black12,
-                //             spreadRadius: 8.0,
-                //             blurRadius: 8.0,
-                //           )
-                //         ],
-                //       ),
-                //     ),
-                //   ],
-                // ),
-                // ElevatedButton(
-                //   onPressed: () {
-                //     print("Start/Stop the machine please");
-                //   }, 
-                //   child: Container(
-                //     padding: EdgeInsets.all(10),
-                //     decoration: BoxDecoration(
-                //       borderRadius: BorderRadius.circular(20),
-                //       color: Colors.blue
-                //     ),
-                //   )
-                // ),
-                
               ],
             )
           ]
