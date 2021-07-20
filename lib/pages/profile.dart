@@ -89,12 +89,21 @@ class _ProfilePageState extends State<ProfilePage> {
                   SizedBox(
                     height: 10,
                   ),
-                  Text(
-                    this._currentUser.username,
-                    style: TextStyle(
-                      color: Colors.black,
-                      fontSize: 24,
-                      fontWeight: FontWeight.bold,
+                  ShaderMask(
+                    shaderCallback: (bounds){
+                      return LinearGradient(
+                        colors: [Colors.blue,Colors.purple, Colors.pink, Colors.deepOrange ,Colors.yellow],
+                        begin: Alignment.centerLeft,
+                        end: Alignment.centerRight
+                      ).createShader(bounds);
+                    },
+                    child: Text(
+                      this._currentUser.username,
+                      style: TextStyle(
+                        color: Colors.white,
+                        fontSize: 24,
+                        fontWeight: FontWeight.bold,
+                      ),
                     ),
                   ),
                   SizedBox(
